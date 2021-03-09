@@ -52,5 +52,6 @@ jobs:
           body: Release for commit ${{ github.event.after }}
           draft: false
           prerelease: false
-              
-          echo test, and deploy your project.
+          
+          
+          
