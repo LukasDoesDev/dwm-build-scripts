@@ -45,6 +45,10 @@ jobs:
           automatic_release_tag: "latest"
           prerelease: true
           title: "Development Build"
+          files: |
+            'dwm'
+            'LICENSE'
+            'README.md'
         
       #- name: Create Release
       #  if: github.event_name == 'push'
