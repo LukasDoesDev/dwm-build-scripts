@@ -46,9 +46,9 @@ jobs:
           prerelease: false
           title: "Development Build"
           files: |
-            'dwm'
-            'LICENSE'
-            'README.md'
+            dwm
+            LICENSE
+            README.md
         
       #- name: Create Release
       #  if: github.event_name == 'push'
