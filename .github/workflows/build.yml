@@ -31,14 +31,11 @@ jobs:
       - name: Copy patches to dwm directory
         run: cp patches dwm -r
       
-      - name: Go to dwm directory
-        run: cd dwm
-      
       - name: Apply patches
-        run: bash patches/apply.sh
+        run: 'bash -c "cd dwm; bash patches/apply.sh"'
       
       - name: Build dwm
-        run: make
+        run: 'bash -c "cd dwm; make"'
         
       - name: Create Release
         if: github.event_name == 'push'
