@@ -2,6 +2,8 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
+ls $SCRIPT_DIR/../
+
 ls $SCRIPT_DIR -al | grep ".diff"
 if [ "$?" != "0" ]; then
   exit 0
