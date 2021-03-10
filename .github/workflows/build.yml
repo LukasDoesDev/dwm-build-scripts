@@ -28,14 +28,17 @@ jobs:
       - name: Get dwm
         run: git clone https://git.suckless.org/dwm
 
+      - name: Rename dwm directory
+        run: mv dwm dwm-dir
+
       - name: Copy patches to dwm directory
-        run: cp patches dwm -r
+        run: cp patches dwm-dir -r
       
       - name: Apply patches
-        run: 'bash -c "cd dwm; bash patches/apply.sh"'
+        run: 'bash -c "cd dwm-dir; bash patches/apply.sh"'
       
       - name: Build dwm
-        run: 'bash -c "cd dwm; make"'
+        run: 'bash -c "cd dwm-dir; make"'
       
       - name: Create Release
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -46,7 +49,7 @@ jobs:
           prerelease: false
           title: "Development Build"
           files: |
-            dwm
+            dwm-dir/dwm
             LICENSE
             README.md
         
