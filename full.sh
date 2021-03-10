@@ -2,5 +2,4 @@
 ./get-dwm.sh
 ./apply-patches.sh
 ./modify-config.sh
-./build-dwm.sh
-
+./build-dwm.sh install
