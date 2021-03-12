@@ -26,16 +26,13 @@ jobs:
         run: sudo apt-get install git xorg libx11-dev libxft-dev libxinerama-dev xdm suckless-tools dmenu
 
       - name: Get dwm
-        run: git clone https://git.suckless.org/dwm
-
-      - name: Copy patches to dwm directory
-        run: cp patches dwm -r
+        run: ./get-dwm.sh
       
       - name: Apply patches
-        run: 'bash -c "cd dwm; bash patches/apply.sh"'
+        run: ./apply-patches.sh
       
       - name: Build dwm
-        run: 'bash -c "cd dwm; make"'
+        run: ./build-dwm.sh
       
       - name: Create Release
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
