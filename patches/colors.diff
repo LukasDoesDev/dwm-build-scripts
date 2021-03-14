@@ -16,6 +16,6 @@ index 1c0b587..7befb6b 100644
  static const char col_gray4[]       = "#eeeeee";
 +/* top bar second color and active window border color */
 +static const char col_cyan[]        = "#9d5fae";
- static const char col_cyan[]        = "#005577";
+-static const char col_cyan[]        = "#005577";
  static const char *colors[][3]      = {
         /*               fg         bg         border   */
