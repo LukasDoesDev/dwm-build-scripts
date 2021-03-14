@@ -1,8 +1,8 @@
 diff --git a/config.def.h b/config.def.h
-index 1c0b587..4efafe7 100644
+index de41918..48844d1 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -52,17 +52,22 @@ static const Layout layouts[] = {
+@@ -63,17 +63,21 @@ static const Layout layouts[] = {
         { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
  /* helper for spawning shell commands in the pre dwm-5.0 fashion */
@@ -15,7 +15,6 @@ index 1c0b587..4efafe7 100644
  static const char *termcmd[]  = { "st", NULL };
 +static const char *firefoxcmd[]  = { "firefox", NULL };
 +static const char *flameshotcmd[]  = { "flameshot", "gui", NULL };
-+
 
  static Key keys[] = {
         /* modifier                     key        function        argument */
