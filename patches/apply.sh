@@ -15,6 +15,6 @@ for file in $SCRIPT_DIR/*.diff
 do
   echo "Applying patch for $file"
   cat $file
-  patch -p 1 < $file
+  patch --dry-run --ignore-whitespace -p 1 < $file
 done
 
