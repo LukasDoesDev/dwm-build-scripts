@@ -66,7 +66,7 @@ index d34409a..ad2e5b7 100644
  
  static const Layout layouts[] = {
  	/* symbol     arrange function */
-@@ -74,11 +70,32 @@ static const Layout layouts[] = {
+@@ -74,11 +70,28 @@ static const Layout layouts[] = {
  
  /* commands */
  static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -80,21 +80,17 @@ index d34409a..ad2e5b7 100644
 + * Xresources preferences to load at startup
 + */
 +ResourcePref resources[] = {
-+	/* Border pixel of windows */
-+	{ "borderpx",           INTEGER, &borderpx },
-+	/* Snap pixel */
-+	{ "snap",               INTEGER, &snap },
-+	/* Colors */
 +	{ "normbgcolor",        STRING,  &normbgcolor },
 +	{ "normbordercolor",    STRING,  &normbordercolor },
 +	{ "normfgcolor",        STRING,  &normfgcolor },
 +	{ "selbgcolor",         STRING,  &selbgcolor },
 +	{ "selbordercolor",     STRING,  &selbordercolor },
 +	{ "selfgcolor",         STRING,  &selfgcolor },
-+	/* Layout */
-+	{ "mfact",              FLOAT,   &mfact },
++	{ "borderpx",          	INTEGER, &borderpx },
++	{ "snap",          	    INTEGER, &snap },
 +	{ "nmaster",            INTEGER, &nmaster },
-+	{ "resizehints",        INTEGER, &resizehints },
++	{ "resizehints",       	INTEGER, &resizehints },
++	{ "mfact",              FLOAT,   &mfact },
 +};
 +
  static Key keys[] = {
@@ -113,8 +109,6 @@ index 0c2fd1c..007d17c 100644
  {
  	size_t i;
  	Clr *ret;
-diff --git a/drw.h b/drw.h
-index 4bcd5ad..42b04ce 100644
 --- a/drw.h
 +++ b/drw.h
 @@ -39,7 +39,7 @@ void drw_font_getexts(Fnt *font, const char *text, unsigned int len, unsigned in
@@ -126,8 +120,6 @@ index 4bcd5ad..42b04ce 100644
  
  /* Cursor abstraction */
  Cur *drw_cur_create(Drw *drw, int shape);
-diff --git a/dwm.c b/dwm.c
-index 7f3427f..4980555 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -36,6 +36,7 @@

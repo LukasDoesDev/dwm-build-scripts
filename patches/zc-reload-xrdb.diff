@@ -1,0 +1,42 @@
+diff --git a/config.def.h b/config.def.h
+index b947e74..5c3ab77 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -100,6 +100,7 @@ static Key keys[] = {
+ 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+ 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = firefoxcmd } },
+ 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = flameshotcmd } },
++	{ MODKEY,                       XK_F5,     reload_xrdb,    {.v = NULL } },
+ 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+ 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+ 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+diff --git a/dwm.c b/dwm.c
+index 376fc01..aebc030 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -283,6 +283,7 @@ static int xerrordummy(Display *dpy, XErrorEvent *ee);
+ static int xerrorstart(Display *dpy, XErrorEvent *ee);
+ static void zoom(const Arg *arg);
+ static void load_xresources(void);
++static void reload_xrdb(const Arg *arg);
+ static void resource_load(XrmDatabase db, char *name, enum resource_type rtype, void *dst);
+ static void centeredmaster(Monitor *m);
+ static void centeredfloatingmaster(Monitor *m);
+@@ -2567,6 +2568,17 @@ load_xresources(void)
+ 	XCloseDisplay(display);
+ }
+ 
++void
++reload_xrdb(const Arg *arg)
++{
++	load_xresources();
++	int i;
++	for (i = 0; i < LENGTH(colors); i++)
++		scheme[i] = drw_scm_create(drw, colors[i], 3);
++	focus(NULL);
++	arrange(NULL);
++}
++
+ int
+ main(int argc, char *argv[])
+ {
